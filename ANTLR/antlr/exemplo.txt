@@ -1,0 +1,4 @@
+integer num, soma;
+READ(num);
+soma = num * (num + 1)/2;
+WRITE( "Soma = ", soma);

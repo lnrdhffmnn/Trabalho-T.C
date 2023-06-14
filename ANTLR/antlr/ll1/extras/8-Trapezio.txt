@@ -1,0 +1,12 @@
+FRAGMENT areaTrapezio;
+float baseMaior;
+float baseMenor;
+float altura;
+float A;
+ENDFRAGMENT
+TYPE(areaTrapezio) area;
+area.baseMaior = 8;
+area.baseMenor = 3;
+area.altura = 5;
+area.A = (area.baseMaior + area.baseMenor) / 2 * area.altura;
+WRITE("Area do trapezio = ", area.A);

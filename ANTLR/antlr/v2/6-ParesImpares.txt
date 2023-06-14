@@ -1,0 +1,24 @@
+FRAGMENT numeros;
+integer vector[10] pares;
+integer vector[10] impares;
+ENDFRAGMENT
+FRAGMENT integer tamanhoTotal;
+10
+ENDFRAGMENT
+TYPE (numeros) nums;
+integer i;
+i = 0;
+WHILE (TRUE) FRAGMENT
+nums.pares[i] = i * 2;
+nums.impares[i] = (i * 2) + 1;
+i = i + 1;
+IF (i == tamanhoTotal - 1) BREAK;
+ENDFRAGMENT
+i = 0;
+WHILE (TRUE) FRAGMENT
+WRITE ("Número \n");
+WRITE ("Par ", i, "*2", ":", nums.pares[i], "\n");
+WRITE ("Ímpar ", i, "*2 + 1", ":", nums.impares[i], "\n");
+i = i + 1;
+IF (i == (tamanhoTotal - 1)) BREAK;
+ENDFRAGMENT

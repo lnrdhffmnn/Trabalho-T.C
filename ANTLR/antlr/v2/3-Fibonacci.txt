@@ -1,0 +1,9 @@
+FRAGMENT integer Fibonacci;
+integer param num;
+IF (num == 1 || num == 2)
+Fibonacci = 1;
+BREAK;
+ELSE
+Fibonacci = Fibonacci(num - 1) + Fibonacci(num - 2);
+ENDFRAGMENT
+WRITE("Fibonacci", Fibonacci(20))

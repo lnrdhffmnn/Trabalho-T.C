@@ -1,0 +1,206 @@
+{
+    "Program": {
+        "StatementList": {
+            "Statement": {
+                "Fragment": {
+                    "1": "FRAGMENT",
+                    "ID": "areaTriangulo",
+                    "2": ";",
+                    "StatementList": {
+                        "Statement": {
+                            "NameDecl": {
+                                "ModifierList": {
+                                    "Modifier": "FLOAT"
+                                },
+                                "Id_List": {
+                                    "ID": "base"
+                                }
+                            },
+                            "1": ";"
+                        },
+                        "StatementList": {
+                            "Statement": {
+                                "NameDecl": {
+                                    "ModifierList": {
+                                        "Modifier": "FLOAT"
+                                    },
+                                    "Id_List": {
+                                        "ID": "altura"
+                                    }
+                                },
+                                "1": ";"
+                            },
+                            "StatementList": {
+                                "Statement": {
+                                    "NameDecl": {
+                                        "ModifierList": {
+                                            "Modifier": "FLOAT"
+                                        },
+                                        "Id_List": {
+                                            "ID": "A"
+                                        }
+                                    },
+                                    "1": ";"
+                                }
+                            }
+                        }
+                    },
+                    "3": "ENDFRAGMENT"
+                }
+            },
+            "StatementList": {
+                "Statement": {
+                    "NameDecl": {
+                        "ModifierList": {
+                            "Modifier": {
+                                "1": "TYPE",
+                                "2": "(",
+                                "ID": "areaTriangulo",
+                                "3": ")"
+                            }
+                        },
+                        "Id_List": {
+                            "ID": "area"
+                        }
+                    },
+                    "1": ";"
+                },
+                "StatementList": {
+                    "Statement": {
+                        "Destiny": {
+                            "Name": {
+                                "Name1": {
+                                    "ID": "area"
+                                },
+                                "1": ".",
+                                "Name2": {
+                                    "ID": "base"
+                                }
+                            }
+                        },
+                        "1": "=",
+                        "Expression": {
+                            "Primary": {
+                                "Name": {
+                                    "ID": "2"
+                                }
+                            }
+                        },
+                        "2": ";"
+                    },
+                    "StatementList": {
+                        "Statement": {
+                            "Destiny": {
+                                "Name": {
+                                    "Name1": {
+                                        "ID": "area"
+                                    },
+                                    "1": ".",
+                                    "Name2": {
+                                        "ID": "altura"
+                                    }
+                                }
+                            },
+                            "1": "=",
+                            "Expression": {
+                                "Primary": {
+                                    "Name": {
+                                        "ID": "3"
+                                    }
+                                }
+                            },
+                            "2": ";"
+                        },
+                        "StatementList": {
+                            "Statement": {
+                                "Destiny": {
+                                    "Name": {
+                                        "Name1": {
+                                            "ID": "area"
+                                        },
+                                        "1": ".",
+                                        "Name2": {
+                                            "ID": "A"
+                                        }
+                                    }
+                                },
+                                "1": "=",
+                                "Expression": {
+                                    "Expression1": {
+                                        "Primary": {
+                                            "Name": {
+                                                "Name1": {
+                                                    "ID": "area"
+                                                },
+                                                "1": ".",
+                                                "Name2": {
+                                                    "ID": "base"
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "BinOp": "*",
+                                    "Expression2": {
+                                        "Expression1": {
+                                            "Primary": {
+                                                "Name": {
+                                                    "Name1": {
+                                                        "ID": "area"
+                                                    },
+                                                    "1": ".",
+                                                    "Name2": {
+                                                        "ID": "altura"
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "BinOp": "/",
+                                        "Expression2": {
+                                            "Name": {
+                                                "ID": "2"
+                                            }
+                                        }
+                                    }
+                                },
+                                "2": ";"
+                            },
+                            "StatementList": {
+                                "Statement": {
+                                    "1": "WRITE",
+                                    "2": "(",
+                                    "ExpressionList": {
+                                        "ExpressionList": {
+                                            "Expression": {
+                                                "Primary": {
+                                                    "Name": {
+                                                        "ID": "Área do triângulo = "
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "1": ",",
+                                        "Expression": {
+                                            "Primary": {
+                                                "Name": {
+                                                    "Name1": {
+                                                        "ID": "area"
+                                                    },
+                                                    "1": ".",
+                                                    "Name2": {
+                                                        "ID": "A"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "3": ")",
+                                    "4": ";"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
