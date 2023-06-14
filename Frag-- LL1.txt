@@ -1,0 +1,56 @@
+Program → StatementList 
+Modifier → "FLOAT" | "BOOLEAN" | "INTEGER" | "PARAM" | "VECTOR" "[" "NUM" "]" | "TYPE" "(" "ID" ")" 
+IdList → "ID" IdListCompound 
+IdListCompound → "," IdListCompound | ε 
+ModifierList → Modifier ModifierListMultiple 
+ModifierListMultiple → Modifier ModifierListMultiple | ε 
+NameDecl → ModifierList IdList 
+Fragment → "FRAGMENT" FragmentBody 
+FragmentBody → ModifierList FragmentId | "ID" FragmentDestiny | "IF" "(" Expression")" StatementList StatementElse StatementListOptional "ENDFRAGMENT" | Fragment StatementListOptional "ENDFRAGMENT" | "READ" "(" ExpressionList ")" ";" StatementListOptional "ENDFRAGMENT" | "WHILE" "(" Expression ")" StatementList StatementListOptional "ENDFRAGMENT" | "SELECT" "(" Expression ")" "FRAGMENT" CaseBlock "ENDFRAFMENT" StatementListOptional "ENDFRAGMENT" | "BREAK" ";" StatementListOptional "ENDFRAGMENT" | "WRITE" "(" ExpressionList ")" ";" StatementListOptional "ENDFRAGMENT"
+EndFragmentLiteral → StatementList "ENDFRAGMENT" | "LITERAL" "ENDFRAGMENT" 
+EndFragmentNum → StatementList "ENDFRAGMENT" | "NUM" "ENDFRAGMENT" 
+FragmentId → "ID" FragmentIdList 
+FragmentDestiny → StatementDestiny StatementListOptional "ENDFRAGMENT" | ";" EndFragmentLiteral 
+FragmentIdList → ";" EndFragmentNum | "." Name NameCompound ";" EndFragmentNum 
+StatementList → Statement StatementListOptional 
+StatementListOptional → StatementList | ε 
+Statement → "ID" StatementDestiny | "IF" "(" Expression")" StatementList StatementElse | NameDecl ";" | Fragment | "READ" "(" ExpressionList ")" ";" | "WHILE" "(" Expression ")" StatementList | "SELECT" "(" Expression ")" "FRAGMENT" CaseBlock "ENDFRAFMENT" | "BREAK" ";" | "WRITE" "(" ExpressionList ")" ";"
+StatementElse → "ELSE" StatementList | ε 
+StatementDestiny → DestinyName "=" Expression ";" | "(" ExpressionList ")" ";" 
+Destiny → "ID" DestinyName 
+DestinyName → "[" Expression "]" DestinyNameCompound | NameCompound | ε 
+DestinyNameCompound → NameCompound | ε 
+CaseBlock → "CASE" Expression ":" StatementList CaseBlock | "DEFAULT" ":" StatementList CaseBlock 
+ExpressionList → Expression ExpressionListCompound 
+ExpressionListCompound → "," Expression ExpressionListCompound | ε 
+Expression → Primary | UnaryOp Expression | ExpressionOr 
+ExpressionOr → ExpressionAnd Or 
+Or → "||" ExpressionAnd Or | ε 
+ExpressionAnd → ExpressionLTEqual And 
+And → "&&" ExpressionLTEqual And | ε 
+ExpressionLTEqual → ExpressionLT LTEqual 
+LTEqual → "<=" ExpressionLT LTEqual | ε 
+ExpressionLT → ExpressionGTEqual LT 
+LT → "<" ExpressionGTEqual LT | ε 
+ExpressionGTEqual → ExpressionGT GTEqual 
+GTEqual → ">=" ExpressionGT GTEqual | ε 
+ExpressionGT → ExpressionDiferent GT 
+GT → ">" ExpressionDiferent GT | ε 
+ExpressionDiferent → ExpressionEqual Diferent 
+Diferent → "!=" ExpressionEqual Diferent | ε 
+ExpressionEqual → ExpressionSub Equal 
+Equal → "==" ExpressionSub Equal | ε 
+ExpressionSub → ExpressionSum Sub 
+Sub → "-" ExpressionSum Sub | ε 
+ExpressionSum → ExpressionDiv Sum 
+Sum → "+" ExpressionDiv Sum | ε 
+ExpressionDiv → ExpressionMult Div 
+Div → "/" ExpressionMult Div | ε 
+ExpressionMult → Primary Mult 
+Mult → "*" Primary Mult | ε 
+Primary → "ID" PrimaryExpression | "(" Expression ")" | "TRUE" | "FALSE" | "LITERAL" 
+PrimaryExpression → "(" ExpressionList ")" | NameExpression 
+Name → "ID" NameExpression 
+NameExpression → NameCompound | "[" Expression "]" NameCompound 
+NameCompound → "." Name NameCompound | ε 
+UnaryOp → "-" | "!" | "+"
